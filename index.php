@@ -131,7 +131,7 @@ $app->post("/admin/forgot", function(){
 	exit;
 });
 
-$app->get("admin/forgot/sent", function(){
+$app->get("/admin/forgot/sent", function(){
 	$page = new PageAdmin([
 		"header"=>false,
 		"footer"=>false
