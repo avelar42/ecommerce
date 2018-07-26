@@ -93,7 +93,8 @@ $app->get("/admin/categories/:idcategory/products/:idproduct/add", function($idc
 	User::verifyLogin();
 	$category = new Category();
 	$category->get((int)$idcategory);
-	$product = new Product();
+	$product = new Product;
+	$product->get((int)$idproduct);
 	$category->addProduct($product);
 	header("Location: /admin/categories/".$idcategory."/products");
 	exit;
@@ -105,6 +106,7 @@ $app->get("/admin/categories/:idcategory/products/:idproduct/remove", function($
 	$category = new Category();
 	$category->get((int)$idcategory);
 	$product = new Product();
+	$product->get((int)$idproduct);
 	$category->removeProduct($product);
 	header("Location: /admin/categories/".$idcategory."/products");
 	exit;
