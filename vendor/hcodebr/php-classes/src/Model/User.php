@@ -263,17 +263,30 @@ class User extends Model{
 		return $msg;
 	}
 
-
+	
 	public static function clearError()
 	{
 		$_SESSION[User::ERROR] = NULL;
 	}
-
 	public static function setErrorRegister($msg)
 	{
 		$_SESSION[User::ERROR_REGISTER] = $msg;
 	}
 
+	public static function getErrorRegister()
+	{
+		$msg = (isset($_SESSION[User::ERROR]) && $_SESSION[User::ERROR]) ? $_SESSION[User::ERROR] : '';
+		User::clearErrorRegister();
+		return $msg;
+	}
+
+
+	public static function clearErrorRegister()
+	{
+		$_SESSION[User::ERROR] = NULL;
+	}
+
+	
 	public static function checkLoginExist($login)
 	{
 		$sql = new Sql();
